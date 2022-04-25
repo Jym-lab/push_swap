@@ -25,7 +25,7 @@ t_node	*new_node(int data)
 	return (new);
 }
 
-void	nodeadd_back(t_stack *list, int data)
+void	node_push(t_stack *list, int data)
 {
 	t_node	*new;
 	
@@ -44,4 +44,29 @@ void	nodeadd_back(t_stack *list, int data)
 		list->head->prev = new;
 	}
 	list->size++;
+}
+
+void	node_pop(t_stack *list)
+{
+	t_node	*cur;
+
+	cur = list->head;
+	if (list->head == NULL)
+		return ;
+	if (list->head->next == list->head)
+		list->head = NULL;
+	else if (list->head->next == list->head->prev)
+	{
+		cur = list->head->prev;
+		list->head->next = list->head;
+		list->head->prev = list->head;
+	}
+	else
+	{
+		cur = list->head->prev;
+		list->head->prev = list->head->prev->prev;
+		list->head->prev->next = list->head;
+	}
+	free(cur);
+	list->size--;
 }

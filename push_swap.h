@@ -6,7 +6,7 @@
 /*   By: yjoo <yjoo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 12:20:14 by yjoo              #+#    #+#             */
-/*   Updated: 2022/04/21 06:41:07 by yjoo             ###   ########.fr       */
+/*   Updated: 2022/04/25 18:59:28 by yjoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
 
 typedef struct s_node
 {
@@ -31,6 +32,9 @@ typedef struct s_stack
 
 t_stack	*init_stack(void);
 t_node	*new_node(int data);
-void	nodeadd_back(t_stack *list, int data);
+void	showstack(t_stack *a);
+void	node_push(t_stack *list, int data);
+void	free_stack(t_stack *stack);
+void	free_split(char	**split);
 
 #endif

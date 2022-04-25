@@ -6,29 +6,12 @@
 /*   By: yjoo <yjoo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 12:22:46 by yjoo              #+#    #+#             */
-/*   Updated: 2022/04/21 06:47:02 by yjoo             ###   ########.fr       */
+/*   Updated: 2022/04/25 18:59:38 by yjoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "libft/libft.h"
-#include <stdio.h>
-
-void	showstack(t_stack *a)
-{
-	t_node *cur = a->head;
-	int i = 1;
-	if (a->head == NULL)
-		exit(1);
-	while (1)
-	{
-		printf("cur[%d] : %d\n", i, cur->data);
-		if (cur->next == a->head)
-			break ;
-		cur = cur->next;
-		i++;
-	}
-}
 
 static int	ft_isspace(char c)
 {
@@ -68,8 +51,8 @@ int	check_arg_atoi(const char *str)
 
 void	check_arg(int ac, char **av, t_stack *a, t_stack *b)
 {
-	int		i;
-	int		j;
+	size_t	i;
+	size_t	j;
 	char	**split;
 
 	i = 1;
@@ -79,14 +62,12 @@ void	check_arg(int ac, char **av, t_stack *a, t_stack *b)
 		split = ft_split(av[i], ' ');
 		while (split[j])
 		{
-			nodeadd_back(a, check_arg_atoi(split[j]));
-			free(split[j]);
+			node_push(a, check_arg_atoi(split[j]));
 			j++;
 		}
+		free_split(split);
 		i++;
 	}
-	free(split);
-	showstack(a);
 	showstack(b);
 }
 
@@ -100,5 +81,7 @@ int	main(int ac, char **av)
 	a = init_stack();
 	b = init_stack();
 	check_arg(ac, av, a, b);
+	free_stack(a);
+	free_stack(b);
 	return (0);
 }
