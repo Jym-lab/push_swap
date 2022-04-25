@@ -6,7 +6,7 @@
 /*   By: yjoo <yjoo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 12:20:14 by yjoo              #+#    #+#             */
-/*   Updated: 2022/04/20 15:06:38 by yjoo             ###   ########.fr       */
+/*   Updated: 2022/04/21 06:41:07 by yjoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,21 @@
 # include <unistd.h>
 # include <stdlib.h>
 
+typedef struct s_node
+{
+	struct s_node	*next;
+	struct s_node	*prev;
+	int				data;
+}	t_node;
+
 typedef struct s_stack
 {
-	struct s_list	*next;
-	int				data;
+	struct s_node	*head;
+	int				size;
 }	t_stack;
 
-typedef struct s_listmark
-{
-	t_stack	*head;
-	t_stack	*tail;
-	int		size;
-}	t_listmark;
-
-t_listmark	*init_list(void);
+t_stack	*init_stack(void);
+t_node	*new_node(int data);
+void	nodeadd_back(t_stack *list, int data);
 
 #endif
