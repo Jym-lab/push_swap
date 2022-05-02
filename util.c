@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "libft/libft.h"
 
 void	free_stack(t_stack *stack)
 {
@@ -42,6 +43,12 @@ void	free_split(char	**split)
 		i++;
 	}
 	free(split);
+}
+
+int	error_msg(void)
+{
+	ft_putstr_fd("Error\n", 1);
+	return (0);
 }
 
 void	showstack(t_stack *a)
