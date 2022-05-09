@@ -6,22 +6,22 @@
 /*   By: yjoo <yjoo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 12:22:46 by yjoo              #+#    #+#             */
-/*   Updated: 2022/04/28 15:10:36 by yjoo             ###   ########.fr       */
+/*   Updated: 2022/05/06 15:02:10 by yjoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "libft/libft.h"
 
 static int	ft_isspace(char c)
 {
-	if (c == '\t' || c == '\n' || c == '\v' || c == '\f' || c == '\r' || c == ' ')
+	if (c == '\t' || c == '\n' || c == '\v' || c == '\f'
+		|| c == '\r' || c == ' ')
 		return (1);
 	else
 		return (0);
 }
 
-long	ft_atol(const char *str)
+static long	ft_atol(const char *str)
 {
 	int		minus;
 	long	result;
@@ -42,7 +42,7 @@ long	ft_atol(const char *str)
 	return (minus * result);
 }
 
-int	atoi_tester(char *str)
+static int	atoi_tester(char *str)
 {
 	long	num;
 
@@ -64,7 +64,7 @@ int	atoi_tester(char *str)
 	return (1);
 }
 
-void	check_arg(int ac, char **av, t_stack *a, t_stack *b)
+static void	check_arg(int ac, char **av, t_stack *a, t_stack *b)
 {
 	size_t	i;
 	size_t	j;
@@ -79,14 +79,14 @@ void	check_arg(int ac, char **av, t_stack *a, t_stack *b)
 		{
 			if (!atoi_tester(split[j]))
 				return (free_split(split));
-			node_push(a, ft_atoi(split[j]));
+			node_addlast(a, ft_atoi(split[j]));
 			j++;
 		}
 		free_split(split);
 		i++;
 	}
-	showstack(a);
-	showstack(b);
+	if (check_stack(a))
+		push_swap(a, b);
 }
 
 int	main(int ac, char **av)

@@ -11,11 +11,10 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "libft/libft.h"
 
 void	free_stack(t_stack *stack)
 {
-	t_node *cur;
+	t_node	*cur;
 
 	cur = stack->head;
 	if (stack->head != NULL)
@@ -37,7 +36,7 @@ void	free_split(char	**split)
 	size_t	i;
 
 	i = 0;
-	while(split[i])
+	while (split[i])
 	{
 		free(split[i]);
 		i++;
@@ -51,16 +50,18 @@ int	error_msg(void)
 	return (0);
 }
 
-void	showstack(t_stack *a)
+//삭제예정인 함수
+void	showstack(t_stack *stack)
 {
-	t_node *cur = a->head;
-	int i = 1;
-	if (a->head == NULL)
+	t_node	*cur = stack->head;
+	int		i = 1;
+
+	if (stack->head == NULL)
 		return ;
 	while (1)
 	{
 		printf("cur[%d] : %d\n", i, cur->data);
-		if (cur->next == a->head)
+		if (cur->next == stack->head)
 			break ;
 		cur = cur->next;
 		i++;

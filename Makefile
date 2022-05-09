@@ -6,7 +6,7 @@
 #    By: yjoo <yjoo@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/20 13:51:37 by yjoo              #+#    #+#              #
-#    Updated: 2022/04/25 17:41:46 by yjoo             ###   ########.fr        #
+#    Updated: 2022/05/06 16:04:02 by yjoo             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,13 @@ NAME = push_swap
 SRCS = main.c \
 		node_util.c \
 		stack_util.c \
-		util.c
+		util.c \
+		push_swap.c \
+		check_stack.c \
+		stack_swap.c \
+		stack_push.c \
+		stack_rotate.c \
+		stack_reverse_rotate.c
 OBJS = $(SRCS:.c=.o)
 
 all: lib $(NAME)

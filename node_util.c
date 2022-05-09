@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   nodeutil.c                                         :+:      :+:    :+:   */
+/*   node_util.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yjoo <yjoo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/21 04:48:00 by yjoo              #+#    #+#             */
-/*   Updated: 2022/04/21 04:48:00 by yjoo             ###   ########.fr       */
+/*   Created: 2022/05/06 15:37:16 by yjoo              #+#    #+#             */
+/*   Updated: 2022/05/06 15:37:16 by yjoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ t_node	*new_node(int data)
 	return (new);
 }
 
-void	node_push(t_stack *list, int data)
+void	node_addlast(t_stack *list, int data)
 {
 	t_node	*new;
-	
+
 	new = new_node(data);
 	if (list->head == NULL)
 	{
@@ -44,29 +44,4 @@ void	node_push(t_stack *list, int data)
 		list->head->prev = new;
 	}
 	list->size++;
-}
-
-void	node_pop(t_stack *list)
-{
-	t_node	*cur;
-
-	cur = list->head;
-	if (list->head == NULL)
-		return ;
-	if (list->head->next == list->head)
-		list->head = NULL;
-	else if (list->head->next == list->head->prev)
-	{
-		cur = list->head->prev;
-		list->head->next = list->head;
-		list->head->prev = list->head;
-	}
-	else
-	{
-		cur = list->head->prev;
-		list->head->prev = list->head->prev->prev;
-		list->head->prev->next = list->head;
-	}
-	free(cur);
-	list->size--;
 }
