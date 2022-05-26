@@ -50,6 +50,42 @@ int	error_msg(void)
 	return (0);
 }
 
+int	max_data(t_stack *stack)
+{
+	t_node	*cur;
+	int		max;
+
+	max = INT_MIN;
+	cur = stack->head;
+	while (cur)
+	{
+		if (max <= cur->data)
+			max = cur->data;
+		cur = cur->next;
+		if (cur == stack->head)
+			break ;
+	}
+	return (max);
+}
+
+int	min_data(t_stack *stack)
+{
+	t_node	*cur;
+	int		min;
+
+	min = INT_MAX;
+	cur = stack->head;
+	while (cur)
+	{
+		if (min >= cur->data)
+			min = cur->data;
+		cur = cur->next;
+		if (cur == stack->head)
+			break ;
+	}
+	return (min);
+}
+
 //삭제예정인 함수
 void	showstack(t_stack *stack)
 {

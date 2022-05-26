@@ -6,7 +6,7 @@
 #    By: yjoo <yjoo@student.42seoul.kr>             +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/20 13:51:37 by yjoo              #+#    #+#              #
-#    Updated: 2022/05/06 16:04:02 by yjoo             ###   ########.fr        #
+#    Updated: 2022/05/18 00:27:35 by yjoo             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,9 @@ SRCS = main.c \
 		stack_swap.c \
 		stack_push.c \
 		stack_rotate.c \
-		stack_reverse_rotate.c
+		stack_reverse_rotate.c \
+		quick_sort.c \
+		sort_stack.c
 OBJS = $(SRCS:.c=.o)
 
 all: lib $(NAME)

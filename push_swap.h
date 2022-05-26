@@ -6,7 +6,7 @@
 /*   By: yjoo <yjoo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 12:20:14 by yjoo              #+#    #+#             */
-/*   Updated: 2022/05/06 16:08:35 by yjoo             ###   ########.fr       */
+/*   Updated: 2022/05/18 20:19:54 by yjoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,22 @@ void	push_swap(t_stack *a, t_stack *b);
 void	sa(t_stack *a);
 void	sb(t_stack *b);
 void	ss(t_stack *a, t_stack *b);
-void	pa(t_stack *a, t_stack *b);
-void	pb(t_stack *a, t_stack *b);
-void	ra(t_stack *a);
-void	rb(t_stack *b);
 void	rr(t_stack *a, t_stack *b);
 void	rra(t_stack *a);
 void	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
+void	a_to_b(t_stack *a, t_stack *b, int cnt);
+void	b_to_a(t_stack *a, t_stack *b, int cnt);
+void	case_two(t_stack *a);
 
 int		error_msg(void);
 int		check_stack(t_stack *a);
+int		max_data(t_stack *stack);
+int		min_data(t_stack *stack);
+int		pa(t_stack *a, t_stack *b);
+int		pb(t_stack *a, t_stack *b);
+int		ra(t_stack *a);
+int		rb(t_stack *b);
+int		get_pivot(t_stack *a, int cnt);
 
 #endif

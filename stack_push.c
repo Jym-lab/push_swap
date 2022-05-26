@@ -21,15 +21,18 @@ static void	ft_push(t_stack *dst, t_stack *src)
 		stack_push(dst, src->head->data);
 		stack_pop(src);
 	}
-	
 }
-void	pa(t_stack *a, t_stack *b)
+
+int	pa(t_stack *a, t_stack *b)
 {
 	ft_push(a, b);
 	ft_putstr_fd("pa\n", 1);
+	return (1);
 }
-void	pb(t_stack *a, t_stack *b)
+
+int	pb(t_stack *a, t_stack *b)
 {
 	ft_push(b, a);
 	ft_putstr_fd("pb\n", 1);
+	return (1);
 }

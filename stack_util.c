@@ -6,7 +6,7 @@
 /*   By: yjoo <yjoo@student.42seoul.kr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 13:48:34 by yjoo              #+#    #+#             */
-/*   Updated: 2022/05/06 15:18:02 by yjoo             ###   ########.fr       */
+/*   Updated: 2022/05/12 17:57:46 by yjoo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,10 @@ void	stack_push(t_stack *stack, int data)
 	}
 	else
 	{
-		new->next = stack->head;
 		new->prev = stack->head->prev;
+		new->next = stack->head;
 		stack->head->prev->next = new;
+		stack->head->prev = new;
 		stack->head = new;
 	}
 	stack->size++;

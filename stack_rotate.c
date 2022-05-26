@@ -18,16 +18,21 @@ static void	ft_rotate(t_stack *stack)
 		return ;
 	stack->head = stack->head->next;
 }
-void	ra(t_stack *a)
+
+int	ra(t_stack *a)
 {
 	ft_rotate(a);
 	ft_putstr_fd("ra\n", 1);
+	return (1);
 }
-void	rb(t_stack *b)
+
+int	rb(t_stack *b)
 {
 	ft_rotate(b);
 	ft_putstr_fd("rb\n", 1);
+	return (1);
 }
+
 void	rr(t_stack *a, t_stack *b)
 {
 	ft_rotate(a);
